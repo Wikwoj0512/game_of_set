@@ -1,0 +1,5 @@
+This is well known game of set made by me in python.
+There is olso a kind of ai that plays the game on its own. 
+TO START THE GAME compile game_of_set.py with pygame installed
+TO START THE AI compile the ai.py file
+ENJOY!!
