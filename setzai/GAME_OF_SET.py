@@ -198,47 +198,6 @@ class player():
 gracz=player()
 ai=player()
 
-class Button():
-    def __init__(self):
-        self.textBoxes = {}
-
-    # ----Clicked In----
-    def clickedIn(self, x, y, width, height):
-        global mouse_state, mouse_x, mouse_y
-        if mouse_state == 1 and mouse_x >= x and mouse_x <= (x + width) and mouse_y >= y and mouse_y <= (y + height):
-            return True
-
-    # ----Clicked Out----
-    def clickedOut(self, x, y, width, height):
-        global mouse_state, mouse_x, mouse_y
-        if mouse_state == 1 and mouse_x < x or mouse_state == 1 and mouse_x > (
-                x + width) or mouse_state == 1 and mouse_y < y or mouse_state == 1 and mouse_y > (y + height):
-            return True
-
-    def hovering(self, x, y, width, height):
-        global mouse_state, mouse_x, mouse_y
-    # ----Hovering----
-        if mouse_state == 0 and mouse_x >= x and mouse_x <= (x + width) and mouse_y >= y and mouse_y <= (y + height):
-            return True
-
-    # ----Click Button----
-    def clickButton(self, x, y, width, height, normalColor, hoverColor, textFont, text, textColor, stateHolding=False,
-                    stateVariable=0, state=1):
-        if not self.clickedIn(x, y, width, height) and not self.hovering(x, y, width, height):
-            pygame.draw.rect(screen, normalColor, (x, y, width, height))
-        elif self.hovering(x, y, width, height):
-            pygame.draw.rect(screen, hoverColor, (x, y, width, height))
-        if stateHolding == True and stateVariable == state:
-            pygame.draw.rect(screen, hoverColor, (x, y, width, height))
-        buttonText = textFont.render(text, True, textColor)
-        buttonText_x = buttonText.get_rect().width
-        buttonText_y = buttonText.get_rect().height
-        screen.blit(buttonText, (((x + (width / 2)) - (buttonText_x / 2)), ((y + (height / 2)) - (buttonText_y / 2))))
-        if self.clickedIn(x, y, width, height):
-            return True
-
-
-button = Button()
 
 def zapis():
     pozycje={'done':done,'columns':f.columns,'rows':f.rows,'ids':f.ids}
