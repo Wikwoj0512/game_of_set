@@ -96,6 +96,6 @@ while not done:
     print(ai.n,ai.clicked, ai.columns)
 
 
-    done=tablica['done']
+
 
 

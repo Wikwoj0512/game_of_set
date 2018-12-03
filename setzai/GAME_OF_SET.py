@@ -1,4 +1,4 @@
-import random
+﻿import random
 import pygame
 import json
 
@@ -52,7 +52,7 @@ class field():
         self.nocards=[[1,1],[1,2],[1,3],[1,4],[2,1],[2,2],[2,3],[2,4],[3,1],[3,2],[3,3],[3,4]]
         self.col5=False
         self.ids=[[0,0,0],[0,0,0],[0,0,0],[0,0,0]]
-        self.sets=0
+        self.sets=1
 
         for i in self.nocards:
             self.addcard(i[0],i[1])
@@ -257,6 +257,8 @@ while not done:
         else:
             mouse_state = 0
     if gameState==0:
+        if not f.sets and f.columns==5:
+            gameState=1
         keys = pygame.key.get_pressed()
         if keys[pygame.K_n]:
             if not f.sets and not f.col5:
@@ -300,6 +302,7 @@ while not done:
                         gracz.clicked[0] = [xd,yd]
         if len(cardsleft)==0 and not f.sets:
             gameState=1
+        
 
         a = odczyt()
 
@@ -324,12 +327,12 @@ while not done:
                 print(len(cardsleft))
                 if len(cardsleft) ==0 and not f.sets:
                     gameState=1
+    zapis()
+
+        
 
 
-        zapis()
 
 
-
-
-
+zapis()
 pygame.quit()
